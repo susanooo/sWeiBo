@@ -22,7 +22,8 @@
 		[self.rtLabel release];
 		[self.rtLabel setBackgroundColor:[UIColor clearColor]];
         
-        [self setSelectionStyle:UITableViewCellEditingStyleNone];
+        //[self setSelectionStyle:UITableViewCellEditingStyleNone];
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     return self;
 }

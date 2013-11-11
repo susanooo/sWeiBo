@@ -59,7 +59,8 @@
 		[titleLabel setText:@"RTLabel"];
 		[self.navigationItem setTitleView:titleLabel];
 		[titleLabel release];
-		[titleLabel setTextAlignment:UITextAlignmentCenter];
+		//[titleLabel setTextAlignment:UITextAlignmentCenter];
+        [titleLabel setTextAlignment:NSTextAlignmentCenter];
 		
 		self.dataArray = [NSMutableArray array];
 		NSMutableDictionary *row1 = [NSMutableDictionary dictionary];
