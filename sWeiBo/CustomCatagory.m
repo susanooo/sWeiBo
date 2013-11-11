@@ -12,7 +12,7 @@
 @implementation UINavigationBar(setbackgroud)
 
 - (void)drawRect:(CGRect)rect {
-    UIImage *image = [UIImage imageNamed:@"navbar_bg.png"];
+    UIImage *image = [UIImage imageNamed:@"navigationbar_background.png"];
     [image drawInRect:rect];
 }
 

@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "DDMenuController.h"
+#import "LeftViewController.h"
+#import "RightViewController.h"
 
 @implementation AppDelegate
 
@@ -16,6 +20,21 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    MainViewController *mainController = [[MainViewController alloc]init];
+
+    
+    DDMenuController *menu = [[DDMenuController alloc]initWithRootViewController:mainController];
+    
+    LeftViewController *leftController = [[LeftViewController alloc]init];
+    RightViewController *rightController = [[RightViewController alloc]init];
+    
+    menu.leftViewController = leftController;
+    menu.rightViewController = rightController;
+    
+    self.window.rootViewController = menu;
+    
+    
     return YES;
 }
 

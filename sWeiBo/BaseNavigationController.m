@@ -26,7 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    //-----------判断版本的两种方法---------------------
+    
+    //-----------第一种判断版本 如果小于5.0 切换方法
+    float version = WXHLOSVersion();
+    if (version >= 5.0) {
+        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbar_background.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
+    //-----------判断这个方法在当前版本是否可用------------
+	if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        ;
+    }
 }
 
 - (void)didReceiveMemoryWarning

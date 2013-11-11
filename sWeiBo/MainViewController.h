@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UITabBarController
+@interface MainViewController : UITabBarController{
+    UIView *_tabbarVirw;
+}
 
+@property (nonatomic,retain)UIView *tabbarView;
 @end
