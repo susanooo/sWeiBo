@@ -24,3 +24,7 @@
 
 //获取设备的物理宽度
 #define ScreenWidth     [UIScreen mainScreen].bounds.size.width
+
+//weibo keys
+#define kAppKey         @"799861625"
+#define kRedirectURI    @"https://api.weibo.com/oauth2/default.html"

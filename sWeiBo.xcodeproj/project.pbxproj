@@ -521,6 +521,9 @@
 		979CE0B118313DCA00120DB8 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979CE0AF18313DCA00120DB8 /* LeftViewController.xib */; };
 		979CE0B518313DDE00120DB8 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CE0B318313DDE00120DB8 /* RightViewController.m */; };
 		979CE0B618313DDE00120DB8 /* RightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 979CE0B418313DDE00120DB8 /* RightViewController.xib */; };
+		979CE0BB1831495A00120DB8 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CE0B81831495A00120DB8 /* libWeiboSDK.a */; };
+		979CE0BC1831495A00120DB8 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 979CE0B91831495A00120DB8 /* WeiboSDK.bundle */; };
+		979CE0BF1831553300120DB8 /* WeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979CE0BE1831553300120DB8 /* WeiboViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1081,6 +1084,11 @@
 		979CE0B218313DDE00120DB8 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
 		979CE0B318313DDE00120DB8 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		979CE0B418313DDE00120DB8 /* RightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewController.xib; sourceTree = "<group>"; };
+		979CE0B81831495A00120DB8 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		979CE0B91831495A00120DB8 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
+		979CE0BA1831495A00120DB8 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
+		979CE0BD1831553300120DB8 /* WeiboViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboViewController.h; sourceTree = "<group>"; };
+		979CE0BE1831553300120DB8 /* WeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1089,6 +1097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				979CDC5718310C3E00120DB8 /* CoreText.framework in Frameworks */,
+				979CE0BB1831495A00120DB8 /* libWeiboSDK.a in Frameworks */,
 				979CDC5518310BCB00120DB8 /* QuartzCore.framework in Frameworks */,
 				979CDBDA1831042F00120DB8 /* CoreGraphics.framework in Frameworks */,
 				979CDBDC1831042F00120DB8 /* UIKit.framework in Frameworks */,
@@ -1162,6 +1171,7 @@
 		979CDBDE1831042F00120DB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				979CE0B71831495A00120DB8 /* libWeiboSDK */,
 				979CDC141831068300120DB8 /* openSource */,
 				979CDD03183132E300120DB8 /* Images */,
 				979CDC061831048200120DB8 /* Uitils */,
@@ -1839,6 +1849,18 @@
 			path = face;
 			sourceTree = "<group>";
 		};
+		979CE0B71831495A00120DB8 /* libWeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				979CE0B81831495A00120DB8 /* libWeiboSDK.a */,
+				979CE0B91831495A00120DB8 /* WeiboSDK.bundle */,
+				979CE0BA1831495A00120DB8 /* WeiboSDK.h */,
+				979CE0BD1831553300120DB8 /* WeiboViewController.h */,
+				979CE0BE1831553300120DB8 /* WeiboViewController.m */,
+			);
+			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2229,6 +2251,7 @@
 				979CDED9183132E500120DB8 /* btn_map_location.png in Resources */,
 				979CDF09183132E500120DB8 /* 003.png in Resources */,
 				979CDEEE183132E500120DB8 /* compose_locatebutton_background_highlighted@2x.png in Resources */,
+				979CE0BC1831495A00120DB8 /* WeiboSDK.bundle in Resources */,
 				979CDFB5183132E600120DB8 /* 061.png in Resources */,
 				979CE04E183132E600120DB8 /* navigationbar_button_background@2x.png in Resources */,
 				979CDEFC183132E500120DB8 /* compose_trendbutton_background_highlighted@2x.png in Resources */,
@@ -2411,6 +2434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				979CDCE0183121CF00120DB8 /* BaseViewController.m in Sources */,
+				979CE0BF1831553300120DB8 /* WeiboViewController.m in Sources */,
 				979CDCFB18312B4500120DB8 /* DiscoverViewController.m in Sources */,
 				979CDC421831071A00120DB8 /* RTLabel.m in Sources */,
 				979CDC281831068300120DB8 /* UIImageView+WebCache.m in Sources */,
@@ -2562,6 +2586,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sWeiBo/sWeiBo-Prefix.pch";
 				INFOPLIST_FILE = "sWeiBo/sWeiBo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/susanoo/Documents/workspace/sWeiBo/sWeiBo/libWeiboSDK,
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2579,6 +2608,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sWeiBo/sWeiBo-Prefix.pch";
 				INFOPLIST_FILE = "sWeiBo/sWeiBo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/susanoo/Documents/workspace/sWeiBo/sWeiBo/libWeiboSDK,
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -9,6 +9,9 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : BaseViewController{
+    UIButton *leftButton;
+    UIButton *rightButton;
+}
 
 @end
