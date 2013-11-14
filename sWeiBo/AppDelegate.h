@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeiboSDK.h"
+
+@class SinaWeibo;
+@class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property(nonatomic,retain)SinaWeibo *sinaweibo;
+@property(nonatomic, retain)MainViewController *mainController;
 
 @end

@@ -9,7 +9,7 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController{
+@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate>{
     UIButton *leftButton;
     UIButton *rightButton;
 }

@@ -19,7 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"首页";
+        self.title = @"微博";
     }
     return self;
 }
@@ -28,11 +28,6 @@
 {
     [super viewDidLoad];
     
-    //leftButton = [[UIButton alloc]init];
-    //leftButton.titleLabel.text = @"注销";
-    
-    //rightButton = [[UIButton alloc]init];
-    //rightButton.titleLabel.text = @"绑定账号";
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"注销" style:UIBarButtonItemStyleBordered target:self action:@selector(logout)];
     
@@ -42,21 +37,45 @@
     self.navigationItem.leftBarButtonItem = leftItem;
     self.navigationItem.rightBarButtonItem = rightItem;
     
+    if (self.sinaweibo.isAuthValid) {
+        //加载微博列表数据
+        [self loadWeiboData];
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning
+
+- (void)loadWeiboData
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSMutableDictionary *parms = [NSMutableDictionary dictionaryWithObject:@"5" forKey:@"count"];
+    [self.sinaweibo requestWithURL:@"statuses/home_timeline.json" params:parms httpMethod:@"GET" delegate:self];
 }
 
 - (void)logout
 {
-    
+    [self.sinaweibo logOut];
+    NSLog(@"注销");
 }
 
 - (void)login
 {
-    
+    [self.sinaweibo logIn];
+    NSLog(@"登陆");
+}
+
+- (void)request:(SinaWeiboRequest *)request didFailWithError:(NSError *)error
+{
+    NSLog(@"网络加载失败%@",error);
+}
+- (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
+{
+    NSLog(@"网络加载完成");
+}
+
+#pragma mark - Memory Manager
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 @end

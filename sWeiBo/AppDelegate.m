@@ -11,8 +11,23 @@
 #import "DDMenuController.h"
 #import "LeftViewController.h"
 #import "RightViewController.h"
+#import "SinaWeibo.h"
 
 @implementation AppDelegate
+
+//初始化微博对象
+- (void)_initSinaWeibo {
+    _sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:_mainController];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+    if ([sinaweiboInfo objectForKey:@"AccessTokenKey"] && [sinaweiboInfo objectForKey:@"ExpirationDateKey"] && [sinaweiboInfo objectForKey:@"UserIDKey"])
+    {
+        _sinaweibo.accessToken = [sinaweiboInfo objectForKey:@"AccessTokenKey"];
+        _sinaweibo.expirationDate = [sinaweiboInfo objectForKey:@"ExpirationDateKey"];
+        _sinaweibo.userID = [sinaweiboInfo objectForKey:@"UserIDKey"];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,10 +36,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    MainViewController *mainController = [[MainViewController alloc]init];
-
     
-    DDMenuController *menu = [[DDMenuController alloc]initWithRootViewController:mainController];
+    
+    _mainController = [[MainViewController alloc]init];
+    DDMenuController *menu = [[DDMenuController alloc]initWithRootViewController:_mainController];
     
     LeftViewController *leftController = [[LeftViewController alloc]init];
     RightViewController *rightController = [[RightViewController alloc]init];
@@ -32,7 +47,11 @@
     menu.leftViewController = leftController;
     menu.rightViewController = rightController;
     
+    //初始化微博对象
+    [self _initSinaWeibo];
+    
     self.window.rootViewController = menu;
+
     
     
     return YES;

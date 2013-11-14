@@ -7,6 +7,7 @@
 //
 
 #import "MoreViewController.h"
+#import "NewThemeViewController.h"
 
 @interface MoreViewController ()
 
@@ -34,6 +35,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -uitableview delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"主题";
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        NewThemeViewController *newThemeController = [[NewThemeViewController alloc]init];
+        [self.navigationController pushViewController:newThemeController animated:YES];
+    }
 }
 
 @end
