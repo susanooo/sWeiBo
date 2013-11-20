@@ -9,9 +9,13 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate>{
+@interface HomeViewController : BaseViewController<SinaWeiboRequestDelegate,UITableViewDelegate,UITableViewDataSource>{
     UIButton *leftButton;
     UIButton *rightButton;
 }
+
+@property(nonatomic,retain)NSArray *data;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

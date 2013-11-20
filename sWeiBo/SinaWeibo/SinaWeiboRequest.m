@@ -349,7 +349,7 @@
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     
     //----------debug---------------
-    NSLog(@"%@",urlString);
+    //NSLog(@"%@",urlString);
 }
 
 - (void)disconnect

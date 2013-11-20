@@ -12,7 +12,7 @@
 		978C28DE183B68D500744519 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28DD183B68D500744519 /* UserModel.m */; };
 		978C28E1183B740D00744519 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E0183B740D00744519 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		978C28E5183C528B00744519 /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E4183C528B00744519 /* WeiboCell.m */; };
-		978C28E8183C52A600744519 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E7183C52A600744519 /* WeiboView.m */; };
+		978C28E8183C52A600744519 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E7183C52A600744519 /* WeiboView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		979CDBD81831042F00120DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBD71831042F00120DB8 /* Foundation.framework */; };
 		979CDBDA1831042F00120DB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBD91831042F00120DB8 /* CoreGraphics.framework */; };
 		979CDBDC1831042F00120DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBDB1831042F00120DB8 /* UIKit.framework */; };

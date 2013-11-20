@@ -89,8 +89,8 @@
     
     //微博视图——weiboView
     _weiboView.weiboModel = _weiboModel;
-    float height = [WeiboView getWeiboViewHeight:_weiboModel isRepost:NO];
-    _weiboView.frame = CGRectMake(50, _nickLabel.bottom+10, (320-60), height);
+    float height = [WeiboView getWeiboViewHeight:_weiboModel isRepost:NO isDetail:NO];
+    _weiboView.frame = CGRectMake(50, _nickLabel.bottom+10, kWeibo_width_List, height);
 }
 
 @end

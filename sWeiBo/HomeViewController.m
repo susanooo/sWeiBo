@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 #import "WeiboModel.h"
+#import "WeiboCell.h"
+#import "WeiboView.h"
 
 @interface HomeViewController ()
 
@@ -45,6 +47,40 @@
     
 }
 
+#pragma mark -UiTableView delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identify = @"WeiboCell";
+    WeiboCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    if (cell == nil) {
+        cell = [[WeiboCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+    }
+    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
+    cell.weiboModel = weibo;
+    
+    return cell;
+}
+
+
+- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    float height = 0;
+    WeiboModel *weibo = [self.data objectAtIndex:indexPath.row];
+    
+    height = [WeiboView getWeiboViewHeight:weibo isRepost:NO isDetail:NO];
+    height += 50;
+    
+    return height;
+}
+
+
+
+
 
 - (void)loadWeiboData
 {
@@ -76,7 +112,12 @@
         WeiboModel *weibo = [[WeiboModel alloc]initWithDataDic:statuesDic];
         [weibos addObject:weibo];
     }
-    NSLog(@"--------%@",weibos);
+    self.data =weibos;
+    
+    //NSLog(@"微博内容：%@",weibos);
+    //刷新列表
+    [self.tableView reloadData];
+    
     NSLog(@"网络加载完成");
 }
 
