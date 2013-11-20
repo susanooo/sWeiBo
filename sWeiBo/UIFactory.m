@@ -28,4 +28,10 @@
     return themeImage;
 }
 
++ (ThemeLabel *)createLabel:(NSString *)colorName
+{
+    ThemeLabel *themeLabel = [[ThemeLabel alloc]initWithColorName:colorName];
+    return themeLabel;
+}
+
 @end

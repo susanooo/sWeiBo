@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "WeiboModel.h"
 
 @interface HomeViewController ()
 
@@ -47,7 +48,7 @@
 
 - (void)loadWeiboData
 {
-    NSMutableDictionary *parms = [NSMutableDictionary dictionaryWithObject:@"5" forKey:@"count"];
+    NSMutableDictionary *parms = [NSMutableDictionary dictionaryWithObject:@"20" forKey:@"count"];
     [self.sinaweibo requestWithURL:@"statuses/home_timeline.json" params:parms httpMethod:@"GET" delegate:self];
 }
 
@@ -69,6 +70,13 @@
 }
 - (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
 {
+    NSArray *statues = [result objectForKey:@"statuses"];
+    NSMutableArray *weibos = [NSMutableArray arrayWithCapacity:statues.count];
+    for (NSDictionary *statuesDic in statues) {
+        WeiboModel *weibo = [[WeiboModel alloc]initWithDataDic:statuesDic];
+        [weibos addObject:weibo];
+    }
+    NSLog(@"--------%@",weibos);
     NSLog(@"网络加载完成");
 }
 

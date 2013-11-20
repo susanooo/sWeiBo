@@ -14,6 +14,8 @@
 #import "MoreViewController.h"
 #import "BaseNavigationController.h"
 #import "UIFactory.h"
+#import "UIViewExt.h"
+
 //#import "ThemeButton.h"
 
 
@@ -95,12 +97,24 @@
         [_tabbarView addSubview:button];
         
     }
+    
+    _sliderView = [UIFactory createImageView:@"tabbar_slider.png"];
+    _sliderView.backgroundColor = [UIColor clearColor];
+    _sliderView.frame = CGRectMake((64-15)/2, 5, 15, 44);
+    [_tabbarView addSubview:_sliderView];
 }
 
 - (void)selectedTab:(UIButton *)button
 {
     //利用传递tag告诉controller切换界面
     self.selectedIndex = button.tag;
+    
+    //计算偏差x
+    float x = button.left + (button.width-_sliderView.width)/2;
+    //动画 0.2秒效果
+    [UIView animateWithDuration:0.2 animations:^{
+        _sliderView.left = x;
+    }];
     
 }
 

@@ -10,6 +10,7 @@
 #import "BaseViewController.h"
 #import "AppDelegate.h"
 #import "UIFactory.h"
+#import "CONSTS.h"
 
 @interface BaseViewController ()
 
@@ -51,8 +52,10 @@
     [super setTitle:title];
     
     //宽和高自动设置
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    titleLabel.textColor = [UIColor blackColor];
+    //UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    //titleLabel.textColor = [UIColor blackColor];
+    
+    UILabel *titleLabel = [UIFactory createLabel:kNavigationBarTitleLabel];
     titleLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.text = title;

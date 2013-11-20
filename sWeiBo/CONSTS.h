@@ -26,4 +26,5 @@
 #define kAppSecret @"e62c1e077e6eb926af23f92ae8b7112f"
 #define kAppRedirectURI    @"https://api.weibo.com/oauth2/default.html"
 
-#define KThemeDidChangeNofication @"KThemeDidChangeNofication"
+
+#define kThemeName @"kThemeName"

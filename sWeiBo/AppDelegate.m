@@ -12,6 +12,8 @@
 #import "LeftViewController.h"
 #import "RightViewController.h"
 #import "SinaWeibo.h"
+#import "CONSTS.h"
+#import "ThemeManager.h"
 
 @implementation AppDelegate
 
@@ -36,7 +38,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    
+    //设置主题 放在前面 在渲染之前
+    [self setTheme];
     
     _mainController = [[MainViewController alloc]init];
     DDMenuController *menu = [[DDMenuController alloc]initWithRootViewController:_mainController];
@@ -55,6 +58,12 @@
     
     
     return YES;
+}
+
+- (void)setTheme
+{
+    NSString *themeName = [[NSUserDefaults standardUserDefaults] objectForKey:kThemeName];
+    [[ThemeManager shareInstance] setThemeName:themeName];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
