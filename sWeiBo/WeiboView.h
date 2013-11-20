@@ -22,6 +22,7 @@
     UIImageView *_image;   //微博图片
     ThemeImageView *_repostBackgroundView;   //转发的微博视图背景
     WeiboView *_repostView;   //转发的微博视图
+    NSMutableString *_parseText;
 }
 
 @property(nonatomic, retain)WeiboModel *weiboModel;

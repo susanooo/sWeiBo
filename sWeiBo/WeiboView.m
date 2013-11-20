@@ -11,6 +11,8 @@
 #import "WeiboModel.h"
 #import "UIImageView+WebCache.h"
 #import "ThemeImageView.h"
+#import "RegexKitLite.h"
+#import "NSString+URLEncoding.h"
 
 
 #define LIST_FONT 14.0f //列表中的内容字体
@@ -25,6 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self _initView];
+        _parseText = [[NSMutableString alloc]init];
     }
     
     return self;
@@ -73,9 +76,54 @@
         _repostView.isRepost = YES;
         [self addSubview:_repostView];
     }
+    [self parseLink];
 }
+
+//解析超链接
+- (void)parseLink
+{
+    [_parseText setString:@""];
+    
+    NSString *text = _weiboModel.text;
+    NSString *regex = @"(@\\w+)|(#\\w+#)|(http(s)?://([A-Za-z0-9._-]+(/)?)*)";
+    NSArray *matchArray = [text componentsMatchedByRegex:regex];
+    for (NSString *linkString in matchArray) {
+        //不同形式的超链接
+        //<a href='user://@用户'></a>
+        //<a href='http://www.baidu.com'>http://www.baidu.com</a>
+        //<a href='topic:'>#话题#</a>
+        
+        NSString *replacing = nil;
+        
+        if ([linkString hasPrefix:@"@"]) {
+            
+            replacing = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[linkString URLEncodedString],linkString];
+        }
+        else if ([linkString hasPrefix:@"http"]){
+            //linkString = [linkString URLEncodedString];
+            replacing = [NSString stringWithFormat:@"<a href='%@'>%@</a>",linkString,linkString];
+        }
+        else if ([linkString hasPrefix:@"#"]){
+            //linkString = [linkString URLEncodedString];
+            replacing = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[linkString URLEncodedString],linkString];
+        }
+        
+        if (replacing != nil) {
+            text = [text stringByReplacingOccurrencesOfString:linkString withString:replacing];
+        }
+        
+    }
+    
+    [_parseText appendString:text];
+    
+}
+
 //展示数据，设置子视图布局
+//layout可能会被调用多次
 - (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    
     //---------------微博内容_textLabel子视图------------------
     //获取字体大小
     float fontSize = [WeiboView getFontSize:self.isDetail isRepost:self.isRepost];
@@ -85,7 +133,7 @@
     if (self.isRepost) {
         _textLabel.frame = CGRectMake(10, 10, self.width-20, 0);
     }
-    _textLabel.text = _weiboModel.text;
+    _textLabel.text = _parseText;
     
     //文本内容尺寸
     CGSize textSize = _textLabel.optimumSize;
@@ -191,7 +239,21 @@
 
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
 {
+    NSString *absolu = [url absoluteString];
+    if ([absolu hasPrefix:@"user"]) {
+        NSString *urlSting = [url host];
+        urlSting = [urlSting URLDecodedString];
+        NSLog(@"用户：%@",urlSting);
+    }else if ([absolu hasPrefix:@"http"]){
+        NSLog(@"链接:%@",absolu);
+    }
+    else if ([absolu hasPrefix:@"topic"]){
+        NSString *urlSting = [url host];
+        urlSting = [urlSting URLDecodedString];
+        NSLog(@"话题：%@",urlSting);
+    }
     
+
 }
 
 @end

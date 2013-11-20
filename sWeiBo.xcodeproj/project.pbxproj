@@ -13,6 +13,10 @@
 		978C28E1183B740D00744519 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E0183B740D00744519 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		978C28E5183C528B00744519 /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E4183C528B00744519 /* WeiboCell.m */; };
 		978C28E8183C52A600744519 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28E7183C52A600744519 /* WeiboView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		978C28EF183D051B00744519 /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 978C28ED183D051B00744519 /* RegexKitLite.html */; };
+		978C28F0183D051B00744519 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28EE183D051B00744519 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		978C28F2183D05EB00744519 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 978C28F1183D05EB00744519 /* libicucore.dylib */; };
+		978C28F5183D106800744519 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 978C28F4183D106800744519 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		979CDBD81831042F00120DB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBD71831042F00120DB8 /* Foundation.framework */; };
 		979CDBDA1831042F00120DB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBD91831042F00120DB8 /* CoreGraphics.framework */; };
 		979CDBDC1831042F00120DB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979CDBDB1831042F00120DB8 /* UIKit.framework */; };
@@ -564,6 +568,12 @@
 		978C28E4183C528B00744519 /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
 		978C28E6183C52A600744519 /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
 		978C28E7183C52A600744519 /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
+		978C28EC183D051B00744519 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		978C28ED183D051B00744519 /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
+		978C28EE183D051B00744519 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		978C28F1183D05EB00744519 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		978C28F3183D106800744519 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		978C28F4183D106800744519 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		979CDBD41831042F00120DB8 /* sWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979CDBD71831042F00120DB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		979CDBD91831042F00120DB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1140,6 +1150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978C28F2183D05EB00744519 /* libicucore.dylib in Frameworks */,
 				979CDC5718310C3E00120DB8 /* CoreText.framework in Frameworks */,
 				979CDC5518310BCB00120DB8 /* QuartzCore.framework in Frameworks */,
 				979CDBDA1831042F00120DB8 /* CoreGraphics.framework in Frameworks */,
@@ -1169,6 +1180,16 @@
 			name = JSONKit;
 			sourceTree = "<group>";
 		};
+		978C28EB183D051B00744519 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				978C28EC183D051B00744519 /* RegexKitLite.h */,
+				978C28ED183D051B00744519 /* RegexKitLite.html */,
+				978C28EE183D051B00744519 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		979CDBCB1831042E00120DB8 = {
 			isa = PBXGroup;
 			children = (
@@ -1191,6 +1212,7 @@
 		979CDBD61831042F00120DB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				978C28F1183D05EB00744519 /* libicucore.dylib */,
 				979CDC5618310C3E00120DB8 /* CoreText.framework */,
 				979CDC5418310BCB00120DB8 /* QuartzCore.framework */,
 				979CDBD71831042F00120DB8 /* Foundation.framework */,
@@ -1288,6 +1310,9 @@
 		979CDC141831068300120DB8 /* openSource */ = {
 			isa = PBXGroup;
 			children = (
+				978C28F3183D106800744519 /* NSString+URLEncoding.h */,
+				978C28F4183D106800744519 /* NSString+URLEncoding.m */,
+				978C28EB183D051B00744519 /* RegexKitLite */,
 				979CDC4B1831073D00120DB8 /* DDMenu */,
 				979CDC291831071A00120DB8 /* RTLabel */,
 				979CDC151831068300120DB8 /* SDWebImage */,
@@ -2333,6 +2358,7 @@
 				979CE0B618313DDE00120DB8 /* RightViewController.xib in Resources */,
 				979CDF9E183132E500120DB8 /* 053@2x.png in Resources */,
 				979CDF45183132E500120DB8 /* 024.gif in Resources */,
+				978C28EF183D051B00744519 /* RegexKitLite.html in Resources */,
 				979CDF82183132E500120DB8 /* 044.png in Resources */,
 				979CDFE7183132E600120DB8 /* 078.gif in Resources */,
 				979CDFC0183132E600120DB8 /* 065.gif in Resources */,
@@ -2524,6 +2550,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978C28F0183D051B00744519 /* RegexKitLite.m in Sources */,
 				97A0367318347ED100C60BB7 /* NewThemeViewController.m in Sources */,
 				974CB3131835E29900B02980 /* ThemeLabel.m in Sources */,
 				979CDCE0183121CF00120DB8 /* BaseViewController.m in Sources */,
@@ -2563,6 +2590,7 @@
 				978C28E5183C528B00744519 /* WeiboCell.m in Sources */,
 				979CDC0C1831051D00120DB8 /* UIUtils.m in Sources */,
 				979CDC241831068300120DB8 /* SDImageCache.m in Sources */,
+				978C28F5183D106800744519 /* NSString+URLEncoding.m in Sources */,
 				979CDC431831071A00120DB8 /* RTLabelProjectAppDelegate.m in Sources */,
 				978C28E8183C52A600744519 /* WeiboView.m in Sources */,
 			);
